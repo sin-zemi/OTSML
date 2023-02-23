@@ -38,3 +38,15 @@ temp = []
 for dictx in hgram:
     temp.append(list(map(lambda dicty: dl2(dictx, dicty), hgram)))
 dl2_matrix = np.matrix(temp)
+
+union = set()
+for d in hgram:
+    union |= d.keys()
+
+words = list(union)
+
+def count(n, w):
+    if w in hgram[n]:
+        return hgram[n][w]
+    else:
+        return 0
