@@ -2,6 +2,29 @@ from collections import Counter
 import math
 import numpy as np
 
+columns = ['する:動詞:自立', 'いる:動詞:非自立', 'の:名詞:非自立', 
+           '事:名詞:非自立',
+           '云う:動詞:自立',
+           '老婆:名詞:一般',
+           'よう:名詞:非自立',
+           'なる:動詞:自立']
+
+def count(n, w):
+    if w in hgram[n]:
+        return hgram[n][w]
+    else:
+        return 0
+
+body = []
+for n in range(20):
+    temp = [count(n, w) for w in columns]
+    temp.append('芥川')
+    body.append(temp)
+for n in range(20):
+    temp = [count(n+20, w) for w in columns]
+    temp.append('菊池')
+    body.append(temp)
+
 path = "OTSML/"
 
 
