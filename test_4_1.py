@@ -16,21 +16,6 @@ kikuchi = ["anegawano_kassen.txt","aru_koino_hanashi.txt","irefuda.txt","emukosh
           "shobugoto.txt","dairiki_monogatari.txt","tojurono_koi.txt","aru_kogisho.txt",
           "minage_kyujogyo.txt","mumeisakkano_nikki.txt","wakasugi_saibancho.txt","bugyoto_ninsogaku.txt"]
 
-for ds in akutagawa:
-    text = open(path+ds,"r",encoding = "shift-jis").read()
-    text = re.sub(ruby,"", text)
-    text = re.sub(chu,"",text)
-    out = open(path+ds+"-decomp.txt", "w")
-    out.write(" ".join(decomp(text)))
-    out.close()
-    
-for ds in kikuchi:
-    text = open(path+ds,"r",encoding = "shift-jis").read()
-    text = re.sub(ruby,"", text)
-    text = re.sub(chu,"",text)
-    out = open(path+ds+"-decomp.txt", "w")
-    out.write(" ".join(decomp(text)))
-    out.close()
     
 hgram = []
 
