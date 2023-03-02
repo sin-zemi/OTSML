@@ -3,28 +3,9 @@ import math
 import numpy as np
 
 path = "OTSML/"
-from collections import Counter
-import re
-import MeCab as mc
-import ipadic
-import numpy as np
-def decomp(text):
-    trg = mc.Tagger(ipadic.MECAB_ARGS)
-    node = trg.parseToNode(text)
-    output = []
-    while node:
-        temp = node.feature.split(",")
-        if temp[0] in ["形容詞", "動詞", "名詞", "副詞"]:
-            output.append(":".join([temp[6],temp[0],temp[1]]))
-        node = node.next
-        if node is None:
-            break
-    return output
 
-ruby = re.compile(r'《[^》]+》')
-chu = re.compile(r'［[^］]+］')
 
-path = "data/"
+
 akutagawa = ["rashomon.txt","yoba.txt","yabuno_naka.txt","mujina.txt","hana.txt",
             "haguruma.txt","torokko.txt","toshishun.txt","shunkan.txt","shujuno_kotoba.txt",
             "jashumon.txt","shogun.txt","shigo.txt","agunino_kami.txt","aruhino_oishi_kuranosuke.txt",
