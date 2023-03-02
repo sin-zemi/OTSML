@@ -14,6 +14,8 @@ def count(n, w):
         return hgram[n][w]
     else:
         return 0
+    
+    
 
 body = []
 for n in range(20):
