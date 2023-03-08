@@ -67,3 +67,10 @@ def l2normalize(dct): # L2正規化
     return dict([(k, v/s) for k, v in dct.items()]) 
 
 hgrm_nrm = [l2normalize(dct) for dct in hgram] # hgramは前に作成したリスト。各作品の単語の種類とその単語の出現回数を持つ辞書型オブジェクトを作品の数だけ持つ。
+
+#2-12
+def countl2(n, w): # n番目の作品にwという単語が何回出現しているかを返す関数
+    if w in hgrm_nrm[n]:
+        return hgrm_nrm[n][w]
+    else:
+        return 0
