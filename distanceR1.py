@@ -1,6 +1,19 @@
  # 40編の作品のルビ・注釈を削除&名詞・形容詞・動詞・副詞のみを抽出
 import re
 
+def decomp(text): # 形容詞、動詞、名詞、副詞のみを取り出す
+    trg = mc.Tagger(ipadic.MECAB_ARGS)
+    node = trg.parseToNode(text)
+    output = []
+    while node:
+        temp = node.feature.split(",")
+        if temp[0] in ["形容詞", "動詞", "名詞", "副詞"]:
+            output.append(":".join([temp[6],temp[0],temp[1]]))
+        node = node.next
+        if node is None:
+            break
+    return output
+
 kosuijun = re.compile(u'([一-龥]*※［[^］]+］)+[一-龥]*《([^》]+)》') # 高水準漢字のパターン
 ruby = re.compile(r'《[^》]+》') # ルビのパターン
 chu = re.compile(r'［[^］]+］') # 注釈のパターン
