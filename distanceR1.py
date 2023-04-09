@@ -1,5 +1,7 @@
  # 40編の作品のルビ・注釈を削除&名詞・形容詞・動詞・副詞のみを抽出
 import re
+import MeCab as mc
+import ipadic
 
 def decomp(text): # 形容詞、動詞、名詞、副詞のみを取り出す
     trg = mc.Tagger(ipadic.MECAB_ARGS)
